@@ -1,0 +1,13 @@
+script.js
+: Submitting the form:
+Saves the new student into localStorage.
+Resets the form inputs.
+Closes the popup modal.
+Automatically refreshes the student list if it is already displayed on the screen.
+Displaying the List on "View":: Submitting the form:
+Saves the new student into localStorage.
+Resets the form inputs.
+Closes the popup modal.
+Automatically refreshes the student list if it is already displayed on the screen.
+Displaying the List on "View":
+
