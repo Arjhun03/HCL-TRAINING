@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <p class="subtitle">Enter your details to calculate your Body Mass Index</p>
+
+        <form onsubmit="event.preventDefault(); validate();">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="name">
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" step="any" placeholder="175" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" step="any" placeholder="70" required>
+            </div>
+
+            <button type="submit">Calculate BMI</button>
+        </form>
+
+        <div id="results" class="results-card" style="display: none;">
+            <p id="resname"></p>
+            <p id="resgender"></p>
+            <p id="resheight"></p>
+            <p id="resweight"></p>
+            <p id="bmi" class="bmi-val"></p>
+            <p id="result" class="status-val"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "training-projects",
+  "version": "1.0.0",
+  "description": "Collection of web training projects and frontend exercises",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "serve": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "training"
+  ],
+  "author": "",
+  "license": "ISC"
+}

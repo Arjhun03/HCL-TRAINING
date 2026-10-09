@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+    <a href="#" class="navbar-brand">Student Information</a>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+    </div>
+</nav>
+
+  <form id="studentForm" onsubmit="addStudent(); return false;">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" id="age" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="rollNo">Roll Number:</label></td>
+                <td><input type="text" id="rollNo" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="class">Class:</label></td>
+                <td><input type="text" id="class" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="section">Section:</label></td>
+                <td><input type="text" id="section" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="phone">Phone:</label></td>
+                <td><input type="tel" id="phone" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea id="address" required></textarea></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Add Student</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>

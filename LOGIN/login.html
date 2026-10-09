@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="login.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center py-5">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+                <div class="card login-card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <!-- Card Header / Brand -->
+                    <div class="card-body p-4 p-sm-5">
+                        <div class="text-center mb-4">
+                            <div class="login-icon-badge d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3">
+                                <i class="bi bi-shield-lock-fill fs-2"></i>
+                            </div>
+                            <h2 class="fw-bold mb-1">Welcome Back</h2>
+                            <p class="text-muted small">Sign in to access your administrative dashboard</p>
+                        </div>
+
+                        <!-- Alert Box for Error Messages -->
+                        <div id="error-alert" class="alert alert-danger d-none d-flex align-items-center py-2 px-3 mb-3 rounded-3" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2 flex-shrink-0"></i>
+                            <div id="error" class="small fw-semibold"></div>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form onsubmit="event.preventDefault(); login();" novalidate>
+                            <!-- Username Field -->
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" id="username" placeholder="Username" required autocomplete="username">
+                                <label for="username">
+                                    <i class="bi bi-person me-1 text-secondary"></i> Username
+                                </label>
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control rounded-3" id="password" placeholder="Password" required autocomplete="current-password">
+                                <label for="password">
+                                    <i class="bi bi-key me-1 text-secondary"></i> Password
+                                </label>
+                            </div>
+
+                            <!-- User ID Field -->
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" name="uid" id="uid" placeholder="User ID">
+                                <label for="uid">
+                                    <i class="bi bi-person-badge me-1 text-secondary"></i> User ID (Optional)
+                                </label>
+                            </div>
+
+                            <!-- Remember Me & Forgot Password -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label small text-muted" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none small text-primary fw-medium">Forgot?</a>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-semibold shadow-sm d-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-box-arrow-in-right"></i> Sign In
+                            </button>
+                        </form>
+
+                        <!-- Demo Credentials Card -->
+                        <div class="mt-4 p-3 bg-light rounded-3 border">
+                            <div class="d-flex align-items-center mb-1">
+                                <i class="bi bi-info-circle-fill text-primary me-2"></i>
+                                <span class="small fw-bold text-dark">Demo Credentials</span>
+                            </div>
+                            <div class="small text-muted font-monospace ps-4">
+                                User: <strong class="text-dark">admin</strong> | Pass: <strong class="text-dark">1234</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Footer note -->
+                <p class="text-center text-muted small mt-4 mb-0">
+                    &copy; 2026 Admin Portal. All rights reserved.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function login() {
+            const usernameInput = document.getElementById("username");
+            const passwordInput = document.getElementById("password");
+            const uidInput = document.getElementById("uid");
+            const errorElement = document.getElementById("error");
+            const errorAlert = document.getElementById("error-alert");
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+            const uid = uidInput.value.trim() || "ADM-001";
+
+            if (username === "admin" && password === "1234") {
+                errorAlert.classList.add("d-none");
+                sessionStorage.setItem("username", username);
+                sessionStorage.setItem("uid", uid);
+                window.location.href = "dashboard.html";
+            } else {
+                errorElement.innerText = "Invalid username or password";
+                errorAlert.classList.remove("d-none");
+                passwordInput.classList.add("is-invalid");
+                usernameInput.classList.add("is-invalid");
+
+                // Clear red border on input
+                const resetValidation = () => {
+                    usernameInput.classList.remove("is-invalid");
+                    passwordInput.classList.remove("is-invalid");
+                };
+                usernameInput.addEventListener("input", resetValidation, { once: true });
+                passwordInput.addEventListener("input", resetValidation, { once: true });
+            }
+        }
+    </script>
+</body>
+</html>
